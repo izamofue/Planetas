@@ -1,0 +1,40 @@
+import math
+
+g_tierra = 9.8
+g_marte = 3.7
+g_jupiter = 24.8
+g_saturno = 9.0
+g_urano = 8.7
+g_neptuno = 11.0
+
+L1 = 1.00
+t1 = 0.46
+L2 = 2.00
+t2 = 0.66
+
+g1 = 2*L1/(t1**2)
+g2 = 2*L2/(t2**2)
+err_g1 = g1*math.sqrt((0.05/L1)**2 + (2*0.01/t1)**2)
+err_g2 = g2*math.sqrt((0.05/L2)**2 + (2*0.01/t2)**2)
+
+if abs(g1 - g_tierra) < err_g1:
+    print("Los tripulantes podrían estar en la Tierra.")
+elif abs(g1 - g_saturno) < err_g1:
+    print("Los tripulantes podrían estar en Saturno.")
+elif abs(g1 - g_urano) < err_g1:
+    print("Los tripulantes podrían estar en Urano.")
+elif abs(g1 - g_neptuno) < err_g1:
+    print("Los tripulantes podrían estar en Neptuno.")
+else:
+    print("No se puede determinar con certeza dónde están los tripulantes.")
+
+if abs(g2 - g_tierra) < err_g2:
+    print("Los tripulantes podrían estar en la Tierra.")
+elif abs(g2 - g_saturno) < err_g2:
+    print("Los tripulantes podrían estar en Saturno.")
+elif abs(g2 - g_urano) < err_g2:
+    print("Los tripulantes podrían estar en Urano.")
+elif abs(g2 - g_neptuno) < err_g2:
+    print("Los tripulantes podrían estar en Neptuno.")
+else:
+    print("No se puede determinar con certeza dónde están los tripulantes.")
